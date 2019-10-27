@@ -2,14 +2,16 @@ import numpy as np
 import pandas as pd
 from collections import defaultdict
 
+# Demonstrating the monty hall problem with n doors --- FAFF version
 
 win_count = defaultdict(int)
 
-
+# Returns a random integer between 1 and n. Both inclusive
 def rand(n):
     return np.random.randint(1, n + 1)
 
 
+# An instance of the monty hall problem with n doors
 def game_(n):
     # global switch_count
 
@@ -37,13 +39,6 @@ def game_(n):
     )
 
     closed_doors = [i for i in range(1, n + 1) if i not in open_doors]
-
-    # current scenario
-    # print("You have chosen : ")
-    # if(chosen_door == car_door):
-    # 	print("car")
-    # else:
-    # 	print("goat")
 
     # Guy always switches
     always_swticher = [i for i in closed_doors if i != chosen_door][0]
